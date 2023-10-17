@@ -8,7 +8,7 @@
 
 int _printf(const char *format, ...)
 {
-	int the_counter = 0;
+	int the_num = 0;
 
 	va_list the_arguments;
 
@@ -18,28 +18,26 @@ int _printf(const char *format, ...)
 		if (*format != '%')
 		{
 			putchar(*format);
-			the_counter++;
+			the_num++;
 		}
 		else if (*format == '\0')
 			break;
 		switch (*++format)
 			{
 				case 'c':
-					the_counter = the_counter + fprintf(stdout, "%c",
-							va_arg(the_arguments, int));
+					the_num += the_num + fprintf(stdout, "%c", va_arg(the_arguments, int));
 					break;
 				case 's':
-					the_counter = the_counter + fprintf(stdout, "%s",
-							va_arg(the_arguments, char *))
+					the_num += fprintf(stdout, "%s", va_arg(the_arguments, char *));
 						break;
 				default:
 					putchar('%');
 					putchar(*format);
-					the_counter = the_counter 2;
+					the_num = the_num + 2;
 					break;
 			}
 		format++;
 	}
 va_end(the_arguments);
-return (the_counter);
+return (the_num);
 }
