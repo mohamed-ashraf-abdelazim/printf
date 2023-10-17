@@ -30,6 +30,12 @@ int _printf(const char *format, ...)
 				case 's':
 					num_of_char += fprintf(stdout, "%s", va_arg(the_argmnts, char *));
 					break;
+				case 'd':
+					num_of_char += fprintf(stdout, "%d", va_arg(the_argmnts, double));
+					break;
+				case 'i':
+					num_of_char += fprintf(stdout, "%d", va_arg(the_argmnts, int));
+					break;
 				default:
 					putchar('%');
 					putchar(*format);
