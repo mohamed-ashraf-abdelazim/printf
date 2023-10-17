@@ -18,27 +18,27 @@ int _printf(const char *format, ...)
 		if (*format != '%')
 		{
 			putchar(*format);
-			the_num++;
+			num_of_char++;
 		}
-		else if (*format == '\0')
-			break;
-		switch (*++format)
+		else
+		{
+			switch (*++format)
 			{
 				case 'c':
-					the_num += the_num + fprintf(stdout, "%c", va_arg(the_arguments, int));
+					num_of_char += fprintf(stdout, "%c", va_arg(the_argmnts, int));
 					break;
 				case 's':
-					the_num += fprintf(stdout, "%s", va_arg(the_arguments, char *));
-						break;
+					num_of_char += fprintf(stdout, "%s", va_arg(the_argmnts, char *));
+					break;
 				default:
 					putchar('%');
 					putchar(*format);
-					the_num = the_num + 2;
+					num_of_char += 2;
 					break;
 			}
+		}
 		format++;
 	}
-va_end(the_arguments);
-return(the_num);
-
-}
+	va_end(the_argmnts);
+	return (num_of_char);
+	}
