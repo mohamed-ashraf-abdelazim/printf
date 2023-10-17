@@ -11,7 +11,8 @@ int _printf(const char *format, ...)
 	int num_of_char = 0;
 
 	va_list the_argmnts;
-
+	if (*format == NULL)
+		exit(98);
 	va_start(the_argmnts, format);
 	while (*format)
 	{
