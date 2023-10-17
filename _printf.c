@@ -16,7 +16,9 @@ int _printf(const char *format, ...)
 	while (*format)
 	{
 		if (*format == NULL)
+		{
 			return (-1);
+		}
 		if (*format != '%')
 		{
 			putchar(*format);
