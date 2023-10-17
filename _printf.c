@@ -8,11 +8,11 @@
 
 int _printf(const char *format, ...)
 {
-	int the_num = 0;
+	int num_of_char = 0;
 
-	va_list the_arguments;
+	va_list the_argmnts;
 
-	va_start(the_arguments, format);
+	va_start(the_argmnts, format);
 	while (*format)
 	{
 		if (*format != '%')
